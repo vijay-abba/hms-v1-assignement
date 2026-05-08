@@ -13,7 +13,7 @@ def patient_menu():
         print("5. Delete Patient")
         print("0. Back")
 
-        pat_choice = user_choice = console.input("[bold yellow] Enter your choice: ")
+        pat_choice = console.input("[bold yellow] Enter your choice: ").strip()
 
         if pat_choice == "1":
             print("1. Add Patient")

@@ -17,7 +17,7 @@ def main_menu():
         print("6. Billing Management")
         print("7. Dashboard")
         print("0. Exit")
-        user_choice = console.input("[bold yellow] Enter your choice: ")
+        user_choice = console.input("[bold yellow] Enter your choice: ").strip()
         # fmt: off
         if user_choice == "1": department_menu()
         elif user_choice == "2": patient_menu()

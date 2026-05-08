@@ -13,7 +13,7 @@ def department_menu():
         print("5. Delete Department")
         print("0. Back")
 
-        dept_choice = user_choice = console.input("[bold yellow] Enter your choice: ")
+        dept_choice = console.input("[bold yellow] Enter your choice: ").strip()
 
         if dept_choice == "1":
             print("1. Add Department")
