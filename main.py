@@ -1,5 +1,6 @@
 from rich.console import Console
 from InputHandling.department_menu import department_menu
+from InputHandling.patient_menu import patient_menu
 console = Console()
 
 
@@ -19,7 +20,7 @@ def main_menu():
         user_choice = console.input("[bold yellow] Enter your choice: ")
         # fmt: off
         if user_choice == "1": department_menu()
-        elif user_choice == "2": print("OK") #patient_menu()
+        elif user_choice == "2": patient_menu()
         elif user_choice == "3": print("OK") #doctor_menu()
         elif user_choice == "4": print("OK") #appointment_menu()
         elif user_choice == "5": print("OK") #treatment_menu()
