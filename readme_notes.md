@@ -18,3 +18,5 @@ pip install -r requirements.txt
 `packagename=1.0.1 `
 
 ---
+
+touch department_menu.py patient_menu.py doctor_menu.py appointment_menu.py treatment_menu.py billing_menu.py dashboard_menu.py
