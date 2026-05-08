@@ -1,6 +1,12 @@
 from rich.console import Console
 from InputHandling.department_menu import department_menu
 from InputHandling.patient_menu import patient_menu
+from InputHandling.doctor_menu import doctor_menu
+from InputHandling.appointment_menu import appointment_menu
+from InputHandling.treatment_menu import treatment_menu
+from InputHandling.billing_menu import billing_menu
+from InputHandling.dashboard_menu import dashboard_menu
+
 console = Console()
 
 
@@ -21,11 +27,11 @@ def main_menu():
         # fmt: off
         if user_choice == "1": department_menu()
         elif user_choice == "2": patient_menu()
-        elif user_choice == "3": print("OK") #doctor_menu()
-        elif user_choice == "4": print("OK") #appointment_menu()
-        elif user_choice == "5": print("OK") #treatment_menu()
-        elif user_choice == "6": print("OK") #billing_menu()
-        elif user_choice == "7": print("OK") #dashboard_menu()
+        elif user_choice == "3": doctor_menu()
+        elif user_choice == "4": appointment_menu()
+        elif user_choice == "5": treatment_menu()
+        elif user_choice == "6": billing_menu()
+        elif user_choice == "7": dashboard_menu()
         elif user_choice == "0":
             console.print("Thank you !", style="bold green")
             break
