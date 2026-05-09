@@ -46,7 +46,7 @@ class Department:
     def get_all(self):
 
         conn = DatabaseConnection.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         try:
             cursor.execute("SELECT * FROM departments")
             return cursor.fetchall()
@@ -57,7 +57,7 @@ class Department:
 
     def get_by_id(self, id):
         conn = DatabaseConnection.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         try:
             query = "SELECT * FROM departments WHERE department_id = %s"
             cursor.execute(query, (id,))
@@ -108,5 +108,3 @@ class Department:
             raise DatabaseConnectionError(f"Failed to fetch departements data: {e} ")
         finally:
             DatabaseConnection.close(conn, cursor)
-
-
