@@ -19,14 +19,14 @@ class DatabaseAction:
         cursor = conn.cursor()
 
         try:
-            keys, values, placeholders = [], [], []
+            fields, values, placeholders = [], [], []
 
             for key, value in payload.items():
-                keys.append(key)
+                fields.append(key)
                 values.append(value)
                 placeholders.append("%s")
 
-            query = f"INSERT INTO {table_name} ({", ".join(keys)}) VALUES ({", ".join(placeholders)})"
+            query = f"INSERT INTO {table_name} ({", ".join(fields)}) VALUES ({", ".join(placeholders)})"
             cursor.execute(query, tuple(values))
             conn.commit()
             new_id = cursor.lastrowid
@@ -63,29 +63,62 @@ class DatabaseAction:
             DatabaseConnection.close(conn, cursor)
 
     @staticmethod
-    def get_by_id(table_name, payload):
+    def get_by_id(table_name, id_name, id):
         conn = DatabaseConnection.get_connection()
         cursor = conn.cursor(dictionary=True)
 
-        payload_list = list(payload.items())
-        key = payload_list[0][0]
-        value = payload_list[0][1]
-
         try:
-            query = f"SELECT * FROM {table_name} WHERE {key} = %s"
-            print(query)
-            cursor.execute(query, (value,))
+            query = f"SELECT * FROM {table_name} WHERE {id_name} = %s"
+            cursor.execute(query, (id,))
+            print(cursor.fetchone())
             return cursor.fetchone()
         except Error as e:
             raise DatabaseConnectionError(f"Failed to fetch {table_name} data: {e} ")
         finally:
             DatabaseConnection.close(conn, cursor)
 
+    @staticmethod
+    def update(table_name, id_name, payload):
+        conn = DatabaseConnection.get_connection()
+        cursor = conn.cursor()
 
-print("---")
-# d = DatabaseAction()
+        try:
+            id = payload.get(id_name)
+            fields, values = [], []
+            for key, val in payload.items():
+                print(key, val)
+                if val is not None and val != "":
+                    fields.append(f"{key} = %s")
+                    values.append(val)
 
+            values.append(id)
+            query = f"UPDATE {table_name} SET {", ".join(fields)} WHERE {id_name} = %s"
+            cursor.execute(query, tuple(values))
+            conn.commit()
+            print(f"[OK] {table_name} {id} has updated.")
+        except Error as e:
+            conn.rollback()
+            raise DatabaseConnectionError(f"Failed to update department: {e}")
+        finally:
+            DatabaseConnection.close(conn, cursor)
+        return
 
+    @staticmethod
+    def delete(table_name, id_name, id):
+        conn = DatabaseConnection.get_connection()
+        cursor = conn.cursor()
+        try:
+            query = f"DELETE FROM {table_name} WHERE {id_name} = %s"
+            cursor.execute(query, (id,))
+            conn.commit()
+            print(f"[OK] {table_name} with {id} has deleted sucessfully.")
+        except Error as e:
+            conn.rollback()
+            raise DatabaseConnectionError(f"Failed to delete {table_name} data: {e} ")
+        finally:
+            DatabaseConnection.close(conn, cursor)
+
+"""
 print("__sf")
 from InputHandling.safe_run import safe_run
 
@@ -103,6 +136,31 @@ patient_data = {
 # safe_run(DatabaseAction.add, "patients", patient_data)
 # safe_run(DatabaseAction.get_all, "patients")
 
-safe_run(DatabaseAction.get_by_id, "patients", {"patient_id": "0"})
-safe_run(DatabaseAction.get_by_id, "departments", {"department_id": "797"})
+# safe_run(DatabaseAction.get_by_id, "patients", {"patient_id": "0"})
+# safe_run(DatabaseAction.get_by_id, "departments", {"department_id": "797"})
 
+# department_id, department_name=None, department_code=None
+
+patient_data = {
+    "patient_id": "6",
+    "patient_name": "Pushpa Raj",
+    "age": "40",
+    "gender": "Male",
+    "phone_number": "s99999X100",
+    "address": "CHITOOR",
+}
+# safe_run(DatabaseAction.update("patients", "patient_id", patient_data))
+
+dep_data = {
+    "department_id": "65",
+    "department_name": "Physiotherapy-DP",
+    "department_code": "PHY-DP",
+}
+
+# safe_run(DatabaseAction.update("departments", "department_id", dep_data))
+
+
+safe_run(DatabaseAction.get_by_id, "patients", "patient_id", "1")
+safe_run(DatabaseAction.get_by_id, "departments", "department_id", "74")
+
+"""

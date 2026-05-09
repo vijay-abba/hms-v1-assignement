@@ -2,7 +2,7 @@ from utils.custome_print import ColPt
 from InputHandling.safe_run import safe_run
 from modules.department import Department
 from tabulate import tabulate
-
+from db_action import DatabaseAction
 
 def department_menu():
 
