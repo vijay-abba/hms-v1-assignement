@@ -56,11 +56,28 @@ class DatabaseAction:
         cursor = conn.cursor(dictionary=True)
         try:
             cursor.execute(f"SELECT * FROM {table_name}")
-            rows = cursor.fetchall()
-            print(rows)
-            return rows
+            return cursor.fetchall()
         except Error as e:
-            raise DatabaseConnectionError(f"Failed to fetch departements data: {e} ")
+            raise DatabaseConnectionError(f"Failed to fetch {table_name} data: {e} ")
+        finally:
+            DatabaseConnection.close(conn, cursor)
+
+    @staticmethod
+    def get_by_id(table_name, payload):
+        conn = DatabaseConnection.get_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        payload_list = list(payload.items())
+        key = payload_list[0][0]
+        value = payload_list[0][1]
+
+        try:
+            query = f"SELECT * FROM {table_name} WHERE {key} = %s"
+            print(query)
+            cursor.execute(query, (value,))
+            return cursor.fetchone()
+        except Error as e:
+            raise DatabaseConnectionError(f"Failed to fetch {table_name} data: {e} ")
         finally:
             DatabaseConnection.close(conn, cursor)
 
@@ -84,6 +101,8 @@ patient_data = {
 }
 
 # safe_run(DatabaseAction.add, "patients", patient_data)
-safe_run(DatabaseAction.get_all, "patients")
-safe_run(DatabaseAction.get_all, "departments")
+# safe_run(DatabaseAction.get_all, "patients")
+
+safe_run(DatabaseAction.get_by_id, "patients", {"patient_id": "0"})
+safe_run(DatabaseAction.get_by_id, "departments", {"department_id": "797"})
 

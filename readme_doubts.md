@@ -20,8 +20,14 @@ Answer:
 
 
 
-3. I have created a db_action.py for the action related things which is generic for all tables , is
+3. db_action.py   location review 
+   safe_run.py    location review 
+   I have created a db_action.py for the action related things which is generic for all tables , is
    this location and code structure is review or we  have to change its location and soem code ? 
 
 
 4.  Safe run Colprt.red is missbehivaing on HMSBase execption 
+
+
+
+5. 
