@@ -15,7 +15,7 @@ def department_menu():
         print("5. Delete Department")
         print("0. Back")
 
-        dept_choice = ColPt.input_yellow("[bold yellow] Enter your choice: ").strip()
+        dept_choice = ColPt.input_yellow("Enter your choice: ").strip()
         dept = Department()
         if dept_choice == "1":
             ColPt.cyan("1. Add Department")

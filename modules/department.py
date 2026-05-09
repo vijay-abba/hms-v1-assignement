@@ -105,6 +105,6 @@ class Department:
             print(f"[OK] Department with {id} has deleted sucessfully.")
         except Error as e:
             conn.rollback()
-            raise DatabaseConnectionError(f"Failed to fetch departements data: {e} ")
+            raise DatabaseConnectionError(f"Failed to delete departements data: {e} ")
         finally:
             DatabaseConnection.close(conn, cursor)
