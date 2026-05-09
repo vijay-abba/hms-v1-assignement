@@ -1,6 +1,9 @@
+from utils.custome_print import ColPt
+
+
 def doctor_menu():
     while True:
-        ColPt("\n----- Doctor Management -----", style="bold blue")
+        ColPt.blue("\n----- Doctor Management -----")
         print("1. Add Doctor")
         print("2. View All Doctor")
         print("3. Get Doctor By ID")
@@ -8,7 +11,7 @@ def doctor_menu():
         print("5. Delete Doctor")
         print("0. Back")
 
-        doc_choice = console.input("[bold yellow] Enter your choice: ").strip()
+        doc_choice = ColPt.input_yellow("Enter your choice: ").strip()
 
         if doc_choice == "1":
             print("1. Add Doctor")
@@ -23,4 +26,4 @@ def doctor_menu():
         elif doc_choice == "0":
             break
         else:
-            ColPt("Invalid Choice, Please Try Again!", style="bold red")
+            ColPt.red("Invalid Choice, Please Try Again!")

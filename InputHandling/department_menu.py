@@ -1,6 +1,10 @@
+
+from utils.custome_print import ColPt
+
 def department_menu():
+
     while True:
-        ColPt("\n----- Department Management -----", style="bold blue")
+        ColPt.blue("\n----- Department Management -----")
         print("1. Add Department")
         print("2. View All Department")
         print("3. Get Department By ID")
@@ -8,7 +12,7 @@ def department_menu():
         print("5. Delete Department")
         print("0. Back")
 
-        dept_choice = console.input("[bold yellow] Enter your choice: ").strip()
+        dept_choice = ColPt.input_yellow("[bold yellow] Enter your choice: ").strip()
 
         if dept_choice == "1":
             print("1. Add Department")
@@ -23,4 +27,4 @@ def department_menu():
         elif dept_choice == "0":
             break
         else:
-            ColPt("Invalid Choice, Please Try Again!", style="bold red")
+            ColPt.red("Invalid Choice, Please Try Again!")
