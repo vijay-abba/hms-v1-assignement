@@ -1,29 +1,68 @@
 from utils.custome_print import ColPt
+from InputHandling.safe_run import safe_run
+from tabulate import tabulate
+from db_action import DatabaseAction
 
 
 def doctor_menu():
+
+    DISPLY_NAME = "Patient"
+    table_name = "patients"
+    pri_id_name = "patient_id"
+
     while True:
-        ColPt.blue("\n----- Doctor Management -----")
-        print("1. Add Doctor")
-        print("2. View All Doctor")
-        print("3. Get Doctor By ID")
-        print("4. Update Doctor")
-        print("5. Delete Doctor")
-        print("0. Back")
+        ColPt.blue(f"\n----- {DISPLY_NAME} Management -----")
+        print(f"1. Add {DISPLY_NAME}")
+        print(f"2. View All {DISPLY_NAME}")
+        print(f"3. Get {DISPLY_NAME} By ID")
+        print(f"4. Update {DISPLY_NAME}")
+        print(f"5. Delete {DISPLY_NAME}")
+        print(f"0. Back")
 
-        doc_choice = ColPt.input_yellow("Enter your choice: ").strip()
+        patient_choice = ColPt.input_yellow("Enter your choice: ").strip()
 
-        if doc_choice == "1":
-            print("1. Add Doctor")
-        elif doc_choice == "2":
-            print("2. View All Doctor")
-        elif doc_choice == "3":
-            print("3. Get Doctor By ID")
-        elif doc_choice == "4":
-            print("4. Update Doctor")
-        elif doc_choice == "5":
-            print("5. Delete Doctor")
-        elif doc_choice == "0":
+        if patient_choice == "1":
+            ColPt.cyan(f"1. Add {DISPLY_NAME}")
+            payload = {
+                "patient_name": ColPt.input_yellow("Patient Name: "),
+                "age": ColPt.input_yellow("Age: "),
+                "gender": ColPt.input_yellow("Gender: "),
+                "phone_number": ColPt.input_yellow("Phone Number: "),
+                "address": ColPt.input_yellow("Address: "),
+            }
+            safe_run(DatabaseAction.add, table_name, payload)
+
+        elif patient_choice == "2":
+            ColPt.cyan(f"2. View All {DISPLY_NAME}")
+            rows = safe_run(DatabaseAction.get_all, table_name)
+            print(tabulate(rows, headers="keys", tablefmt="grid"))
+
+        elif patient_choice == "3":
+            ColPt.cyan(f"3. Get {DISPLY_NAME} By ID")
+            patient_id = ColPt.input_yellow("Patient Id: ")
+            item = safe_run(
+                DatabaseAction.get_by_id, table_name, pri_id_name, patient_id
+            )
+            print(tabulate(item.items(), headers=["Key", "Value"], tablefmt="grid"))
+
+        elif patient_choice == "4":
+            ColPt.cyan(f"4. Update {DISPLY_NAME}")
+            payload = {
+                "patient_id": ColPt.input_yellow("Patient Id: "),
+                "patient_name": ColPt.input_yellow("Patient Name: "),
+                "age": ColPt.input_yellow("Age: "),
+                "gender": ColPt.input_yellow("Gender: "),
+                "phone_number": ColPt.input_yellow("Phone Number: "),
+                "address": ColPt.input_yellow("Address: "),
+            }
+            safe_run(DatabaseAction.update, table_name, pri_id_name, payload)
+
+        elif patient_choice == "5":
+            ColPt.cyan(f"5. Delete {DISPLY_NAME}")
+            patient_id = ColPt.input_yellow("Patient Id: ")
+            safe_run(DatabaseAction.delete, table_name, pri_id_name, patient_id)
+
+        elif patient_choice == "0":
             break
         else:
             ColPt.red("Invalid Choice, Please Try Again!")
