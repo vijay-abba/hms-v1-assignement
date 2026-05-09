@@ -1,8 +1,6 @@
 class HMSBaseException(Exception):
     def __init__(self, message="An error occured in the HMS"):
         self.message = f" \033[1;31m ❌ {message} \033[0m "
-        print(self.message)
-
         super().__init__(self.message)
 
 

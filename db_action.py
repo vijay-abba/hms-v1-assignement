@@ -13,7 +13,8 @@ from utils.custome_print import ColPt
 
 class DatabaseAction:
 
-    def add(self, table_name, payload):
+    @staticmethod
+    def add(table_name, payload):
         conn = DatabaseConnection.get_connection()
         cursor = conn.cursor()
 
@@ -50,7 +51,7 @@ class DatabaseAction:
 
 
 print("---")
-d = DatabaseAction()
+# d = DatabaseAction()
 
 
 print("__sf")
@@ -67,4 +68,4 @@ patient_data = {
     "address": "HYD",
 }
 
-safe_run(d.add, "patients", patient_data)
+safe_run(DatabaseAction.add, "patients", patient_data)
