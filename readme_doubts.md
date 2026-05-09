@@ -17,3 +17,11 @@ ANSWEER:
 
 Answer:
     The short answer is no, it will not affect your performance in any noticeable way. In fact, what you have done is actually a highly praised software engineering practice! You have created what is called a Wrapper or Helper Class, and it shows your evaluators that you understand the DRY Principle (Don't Repeat Yourself).
+
+
+
+3. I have created a db_action.py for the action related things which is generic for all tables , is
+   this location and code structure is review or we  have to change its location and soem code ? 
+
+
+4.  Safe run Colprt.red is missbehivaing on HMSBase execption 

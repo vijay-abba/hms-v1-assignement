@@ -49,6 +49,21 @@ class DatabaseAction:
             DatabaseConnection.close(conn, cursor)
             print("---")
 
+    @staticmethod
+    def get_all(table_name):
+
+        conn = DatabaseConnection.get_connection()
+        cursor = conn.cursor(dictionary=True)
+        try:
+            cursor.execute(f"SELECT * FROM {table_name}")
+            rows = cursor.fetchall()
+            print(rows)
+            return rows
+        except Error as e:
+            raise DatabaseConnectionError(f"Failed to fetch departements data: {e} ")
+        finally:
+            DatabaseConnection.close(conn, cursor)
+
 
 print("---")
 # d = DatabaseAction()
@@ -68,4 +83,7 @@ patient_data = {
     "address": "HYD",
 }
 
-safe_run(DatabaseAction.add, "patients", patient_data)
+# safe_run(DatabaseAction.add, "patients", patient_data)
+safe_run(DatabaseAction.get_all, "patients")
+safe_run(DatabaseAction.get_all, "departments")
+
