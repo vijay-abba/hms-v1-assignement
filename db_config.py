@@ -42,5 +42,32 @@ class DatabaseConnection:
         if conn and conn.is_connected():
             conn.close()
             print("connection closed for conn")
+    
 
-            
+    @staticmethod
+    def add():
+        pass
+
+"""
+conn = DatabaseConnection.get_connection()
+print(conn)
+cursor = conn.cursor()
+print(cursor)
+tables = cursor.execute("SHOW Tables")
+print(cursor.fetchall())
+
+
+DatabaseConnection.close(conn, cursor)
+# tables = cursor.execute("SHOW Tables")
+
+print(conn.is_connected())
+print(cursor)
+
+
+
+
+
+# print(cursor)
+# cursor.execute("SHOW Tables")
+
+"""

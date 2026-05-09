@@ -14,9 +14,11 @@ console = Console()
 class Department:
 
     def add(self, department_name, department_code):
+
         conn = DatabaseConnection.get_connection()
         cursor = conn.cursor()
         try:
+
             query = """
                 INSERT INTO departments (department_name, department_code)
                 VALUES (%s,  %s)  
@@ -34,10 +36,21 @@ class Department:
             conn.rollback()
             print(f"InterfaceError: {e.msg} ")
         except IntegrityError as e:
+            # 1062 (23000): Duplicate entry 'department' for key 'departments.department_name'
+            # key_name = list(map(lambda x: x.replace("'", "").strip(), e.msg.split("key")))[1].split(".")[1]
+            # print("---")
+
+            print(f"IntegrityError: {e} ")
             conn.rollback()
             key_name = re.search(r"key '[^.]+\.([^']+)'", e.msg).group(1)
-            value_name = locals()[key_name]
-            raise DuplicateRecordError("department", key_name, value_name)
+            print(key_name)
+
+            field_values = {
+                "department_name": department_name,
+                "department_code": department_code,
+            }
+
+            raise DuplicateRecordError("department", key_name, field_values[key_name])
         except ProgrammingError as e:
             console.print(f"ProgrammingError: Invalid SQL syntax {e}", style="bold red")
         except Error as e:
@@ -47,10 +60,11 @@ class Department:
         finally:
             DatabaseConnection.close(conn, cursor)
 
+    
+
 
 try:
     d = Department()
-    d.add("department1", "dep")
+    d.add("department", "dep")
 except HMSBaseException as e:
     print(f"{e}")
-

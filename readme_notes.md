@@ -20,3 +20,19 @@ pip install -r requirements.txt
 ---
 
 touch department_menu.py patient_menu.py doctor_menu.py appointment_menu.py treatment_menu.py billing_menu.py dashboard_menu.py
+
+
+
+
+ALTER TABLE departments 
+ADD CONSTRAINT UNIQUE (department_name),
+ADD CONSTRAINT UNIQUE (department_code);
+
+or 
+
+ALTER TABLE departments ADD UNIQUE (department_name);
+ALTER TABLE departments ADD UNIQUE (department_code);
+
+
+describe departments;
+
