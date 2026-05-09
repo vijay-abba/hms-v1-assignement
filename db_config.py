@@ -1,10 +1,8 @@
 import mysql.connector
 from mysql.connector import Error
 from exceptions.custom_expections import DatabaseConnectionError
-from rich.console import Console
 
-console = Console()
-
+from utils.custome_print import ColPt
 
 # fmt: off
 DB_CONFIG = {
@@ -25,7 +23,7 @@ class DatabaseConnection:
         try:
             conn = mysql.connector.connect(**DB_CONFIG)
             if conn.is_connected():
-                console.print("Connected to Database sucessfully", style="bold green")
+                ColPt.green("Connected to Database sucessfully")
                 return conn
             raise DatabaseConnectionError(
                 "Connection Object is created but not connected"
@@ -38,36 +36,11 @@ class DatabaseConnection:
 
         if cursor:
             cursor.close()
-            print("connection closed for cursor")
+            ColPt.orange("connection closed for cursor")
         if conn and conn.is_connected():
             conn.close()
-            print("connection closed for conn")
-    
+            ColPt.orange("connection closed for conn")
 
     @staticmethod
     def add():
         pass
-
-"""
-conn = DatabaseConnection.get_connection()
-print(conn)
-cursor = conn.cursor()
-print(cursor)
-tables = cursor.execute("SHOW Tables")
-print(cursor.fetchall())
-
-
-DatabaseConnection.close(conn, cursor)
-# tables = cursor.execute("SHOW Tables")
-
-print(conn.is_connected())
-print(cursor)
-
-
-
-
-
-# print(cursor)
-# cursor.execute("SHOW Tables")
-
-"""

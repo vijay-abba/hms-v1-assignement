@@ -1,13 +1,9 @@
-
-
-from rich.console import Console
-
-console = Console()
+from utils.custome_print import ColPt
 
 
 def dashboard_menu():
     while True:
-        console.print("\n----- Dashboard -----", style="bold blue")
+        ColPt.blue("\n----- Dashboard -----")
         print("1. Summary Numbers")
         print("2. Top Doctors by Revenue")
         print("3. Patients per department")
@@ -16,8 +12,7 @@ def dashboard_menu():
         print("6. Most common treatments")
         print("0. Back")
 
-
-        dash_choice = console.input("[bold yellow] Enter your choice: ").strip()
+        dash_choice = ColPt.input_yellow("Enter your choice: ").strip()
 
         if dash_choice == "1":
             print("1. Summary Numbers")
@@ -30,9 +25,8 @@ def dashboard_menu():
         elif dash_choice == "5":
             print("5. Pending payments")
         elif dash_choice == "6":
-           print("6. Most common treatments")
+            print("6. Most common treatments")
         elif dash_choice == "0":
             break
         else:
-            console.print("Invalid Choice, Please Try Again!", style="bold red")
-
+            ColPt.red("Invalid Choice, Please Try Again!")

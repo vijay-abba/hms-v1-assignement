@@ -5,10 +5,8 @@ from exceptions.custom_expections import (
     HMSBaseException,
 )
 from mysql.connector import Error, IntegrityError, ProgrammingError, InterfaceError
-from rich.console import Console
-import re
 
-console = Console()
+import re
 
 
 class Department:
@@ -52,15 +50,13 @@ class Department:
 
             raise DuplicateRecordError("department", key_name, field_values[key_name])
         except ProgrammingError as e:
-            console.print(f"ProgrammingError: Invalid SQL syntax {e}", style="bold red")
+            ColPt(f"ProgrammingError: Invalid SQL syntax {e}", style="bold red")
         except Error as e:
-            console.print(e)
+            ColPt(e)
             conn.rollback()
-            console.print(f"Something went Wrong {e}", style="bold red")
+            ColPt(f"Something went Wrong {e}", style="bold red")
         finally:
             DatabaseConnection.close(conn, cursor)
-
-    
 
 
 try:

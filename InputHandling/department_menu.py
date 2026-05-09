@@ -1,11 +1,6 @@
-from rich.console import Console
-
-console = Console()
-
-
 def department_menu():
     while True:
-        console.print("\n----- Department Management -----", style="bold blue")
+        ColPt("\n----- Department Management -----", style="bold blue")
         print("1. Add Department")
         print("2. View All Department")
         print("3. Get Department By ID")
@@ -28,4 +23,4 @@ def department_menu():
         elif dept_choice == "0":
             break
         else:
-            console.print("Invalid Choice, Please Try Again!", style="bold red")
+            ColPt("Invalid Choice, Please Try Again!", style="bold red")

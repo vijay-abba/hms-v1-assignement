@@ -1,11 +1,9 @@
-from rich.console import Console
-
-console = Console()
+from utils.custome_print import ColPt
 
 
 def appointment_menu():
     while True:
-        console.print("\n----- Appointment Management -----", style="bold blue")
+        ColPt.blue("\n----- Appointment Management -----")
         print("1. Book Appointment")
         print("2. View All Appointments")
         print("3. Get Appointment By ID")
@@ -14,7 +12,7 @@ def appointment_menu():
         print("6. Cancel Appointment")
         print("0. Back")
 
-        app_choice = console.input("[bold yellow] Enter your choice: ").strip()
+        app_choice = ColPt.input_yellow("Enter your choice: ").strip()
 
         if app_choice == "1":
             print("1. Book Appointment")
@@ -27,8 +25,8 @@ def appointment_menu():
         elif app_choice == "5":
             print("5. Delete Appointment")
         elif app_choice == "6":
-           print("6. Cancel Appointment")
+            print("6. Cancel Appointment")
         elif app_choice == "0":
             break
         else:
-            console.print("Invalid Choice, Please Try Again!", style="bold red")
+            ColPt.red("Invalid Choice, Please Try Again!")

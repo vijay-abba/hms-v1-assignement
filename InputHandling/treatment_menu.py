@@ -1,11 +1,6 @@
-from rich.console import Console
-
-console = Console()
-
-
 def treatment_menu():
     while True:
-        console.print("\n----- Treatment Management -----", style="bold blue")
+        ColPt("\n----- Treatment Management -----", style="bold blue")
         print("1. Add Treatment")
         print("2. View All Treatments")
         print("3. Get Treatment By ID")
@@ -27,9 +22,8 @@ def treatment_menu():
         elif treat_choice == "5":
             print("5. Delete Treatment")
         elif treat_choice == "6":
-           print("6. View Treatments By Appointment")
+            print("6. View Treatments By Appointment")
         elif treat_choice == "0":
             break
         else:
-            console.print("Invalid Choice, Please Try Again!", style="bold red")
-
+            ColPt("Invalid Choice, Please Try Again!", style="bold red")

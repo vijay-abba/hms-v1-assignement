@@ -1,4 +1,4 @@
-from rich.console import Console
+
 from InputHandling.department_menu import department_menu
 from InputHandling.patient_menu import patient_menu
 from InputHandling.doctor_menu import doctor_menu
@@ -7,14 +7,14 @@ from InputHandling.treatment_menu import treatment_menu
 from InputHandling.billing_menu import billing_menu
 from InputHandling.dashboard_menu import dashboard_menu
 
-console = Console()
+from utils.custome_print import ColPt
 
 
 def main_menu():
     while True:
-        console.print("*" * 45, style="bold blue")
-        console.print("      HOSPITAL MANAGEMENT SYSTEM (HMS)", style="bold blue")
-        console.print("*" * 45, style="bold blue")
+        ColPt.blue("*" * 45)
+        ColPt.blue("      HOSPITAL MANAGEMENT SYSTEM (HMS)")
+        ColPt.blue("*" * 45)
         print("1. Department Management")
         print("2. Patient Management")
         print("3. Doctor Management")
@@ -23,7 +23,7 @@ def main_menu():
         print("6. Billing Management")
         print("7. Dashboard")
         print("0. Exit")
-        user_choice = console.input("[bold yellow] Enter your choice: ").strip()
+        user_choice = ColPt.input_yellow("Enter your choice: ").strip()
         # fmt: off
         if user_choice == "1": department_menu()
         elif user_choice == "2": patient_menu()
@@ -33,10 +33,10 @@ def main_menu():
         elif user_choice == "6": billing_menu()
         elif user_choice == "7": dashboard_menu()
         elif user_choice == "0":
-            console.print("Thank you !", style="bold green")
+            ColPt.green("Thank you !")
             break
         else:
-            console.print("Invalid Choice, Please Try Again!", style="bold red")
+            ColPt.red("Invalid Choice, Please Try Again!")
         # fmt: on
 
 

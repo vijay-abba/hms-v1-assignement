@@ -1,13 +1,9 @@
-
-
-from rich.console import Console
-
-console = Console()
+from utils.custome_print import ColPt
 
 
 def billing_menu():
     while True:
-        console.print("\n----- Billing Management -----", style="bold blue")
+        ColPt.blue("\n----- Billing Management -----")
         print("1. Add Bill (manual)")
         print("2. Auto-Generate Bill from Treatments")
         print("3. View All Bills")
@@ -16,8 +12,7 @@ def billing_menu():
         print("6. Delete Bill")
         print("0. Back")
 
-
-        bill_choice = console.input("[bold yellow] Enter your choice: ").strip()
+        bill_choice = ColPt.input_yellow("Enter your choice: ").strip()
 
         if bill_choice == "1":
             print("1. Add Bill (manual)")
@@ -30,9 +25,8 @@ def billing_menu():
         elif bill_choice == "5":
             print("5. Update Bill")
         elif bill_choice == "6":
-           print("6. Delete Bill")
+            print("6. Delete Bill")
         elif bill_choice == "0":
             break
         else:
-            console.print("Invalid Choice, Please Try Again!", style="bold red")
-
+            ColPt.red("Invalid Choice, Please Try Again!")
