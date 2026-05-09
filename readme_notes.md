@@ -36,3 +36,5 @@ ALTER TABLE departments ADD UNIQUE (department_code);
 
 describe departments;
 
+
+Key Medical & Clinical DepartmentsEmergency/Casualty: Immediate treatment for acute injuries/illnessesCardiology: Heart-related issuesNeurology/Neurosurgery: Brain, nerve, and spinal cord conditionsOrthopedics: Bone, joint, and skeletal issuesObstetrics & Gynecology: Pregnancy, childbirth, and female reproductive healthPediatrics: Children and adolescent careGeneral Surgery: Operative proceduresOncology: Cancer diagnosis and treatmentENT: Ear, Nose, and Throat specialismsPsychiatry: Mental health servicesDermatology: Skin conditionsUrology: Urinary system and male reproductive healthGastroenterology: Digestive system disorders

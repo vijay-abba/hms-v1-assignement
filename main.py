@@ -1,4 +1,3 @@
-
 from InputHandling.department_menu import department_menu
 from InputHandling.patient_menu import patient_menu
 from InputHandling.doctor_menu import doctor_menu
@@ -40,4 +39,9 @@ def main_menu():
         # fmt: on
 
 
-main_menu()
+try:
+    main_menu()
+except KeyboardInterrupt as e:
+    ColPt.yellow(f"[Info] Operation cancelled by user")
+except Exception as e:
+    ColPt.red(f"[UNEXPECTED ERROR ] {e}")
