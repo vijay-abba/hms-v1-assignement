@@ -70,7 +70,6 @@ class DatabaseAction:
         try:
             query = f"SELECT * FROM {table_name} WHERE {id_name} = %s"
             cursor.execute(query, (id,))
-            print(cursor.fetchone())
             return cursor.fetchone()
         except Error as e:
             raise DatabaseConnectionError(f"Failed to fetch {table_name} data: {e} ")

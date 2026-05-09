@@ -30,4 +30,9 @@ Answer:
 
 
 
-5. 
+5. INFO and confession 
+   DatabaseAction class 
+   I have not create directly DatabaseAction
+   first ihave practiced department.py and patient.py 
+   then copied its logic and made adjustment and generic 
+
