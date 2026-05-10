@@ -1,32 +1,70 @@
 from utils.custome_print import ColPt
+from InputHandling.safe_run import safe_run
+from tabulate import tabulate
+from db_action import DatabaseAction
 
 
 def appointment_menu():
+
+    # TASK: PENDING DOC
+    DISPLY_NAME = "Appointment"
+    table_name = "appointments"
+    pri_id_name = "appointment_id"
+
     while True:
-        ColPt.blue("\n----- Appointment Management -----")
-        print("1. Book Appointment")
-        print("2. View All Appointments")
-        print("3. Get Appointment By ID")
-        print("4. Update Appointment")
-        print("5. Delete Appointment")
+        ColPt.blue(f"\n----- {DISPLY_NAME} Management -----")
+        print(f"1. Add {DISPLY_NAME}")
+        print(f"2. View All {DISPLY_NAME}")
+        print(f"3. Get {DISPLY_NAME} By ID")
+        print(f"4. Update {DISPLY_NAME}")
+        print(f"5. Delete {DISPLY_NAME}")
         print("6. Cancel Appointment")
-        print("0. Back")
+        print(f"0. Back")
 
-        app_choice = ColPt.input_yellow("Enter your choice: ").strip()
+        choice = ColPt.input_yellow("Enter your choice: ").strip()
 
-        if app_choice == "1":
-            print("1. Book Appointment")
-        elif app_choice == "2":
-            print("2. View All Appointments")
-        elif app_choice == "3":
-            print("3. Get Appointment By ID")
-        elif app_choice == "4":
-            print("4. Update Appointment")
-        elif app_choice == "5":
-            print("5. Delete Appointment")
-        elif app_choice == "6":
+        if choice == "1":
+            ColPt.cyan(f"1. Add {DISPLY_NAME}")
+            payload = {
+                "patient_id": ColPt.input_yellow("Patient Name: "),
+                "doctor_id": ColPt.input_yellow("Doctor Id: "),
+                "appointment_time": ColPt.input_yellow("Appointment Time: "),
+                "appointment_status": ColPt.input_yellow("Appointment Status: "),
+            }
+            safe_run(DatabaseAction.add, table_name, payload)
+
+        elif choice == "4":
+            ColPt.cyan(f"4. Update {DISPLY_NAME}")
+            payload = {
+                "appointment_id": ColPt.input_yellow("Appointment Id: "),
+                "patient_id": ColPt.input_yellow("Patient Name: "),
+                "doctor_id": ColPt.input_yellow("Doctor Id: "),
+                "appointment_time": ColPt.input_yellow("Appointment Time: "),
+                "appointment_status": ColPt.input_yellow("Appointment Status: "),
+            }
+            safe_run(DatabaseAction.update, table_name, pri_id_name, payload)
+
+        elif choice == "2":
+            ColPt.cyan(f"2. View All {DISPLY_NAME}")
+            rows = safe_run(DatabaseAction.get_all, table_name)
+            print(tabulate(rows, headers="keys", tablefmt="grid"))
+
+        elif choice == "3":
+            ColPt.cyan(f"3. Get {DISPLY_NAME} By ID")
+            id = ColPt.input_yellow(f"{DISPLY_NAME} Id: ")
+            item = safe_run(DatabaseAction.get_by_id, table_name, pri_id_name, id)
+            print(tabulate(item.items(), headers=["Key", "Value"], tablefmt="grid"))
+
+        elif choice == "5":
+            ColPt.cyan(f"5. Delete {DISPLY_NAME}")
+            id = ColPt.input_yellow(f"{DISPLY_NAME} Id: ")
+            safe_run(DatabaseAction.delete, table_name, pri_id_name, id)
+
+        elif choice == "6":
             print("6. Cancel Appointment")
-        elif app_choice == "0":
+            print("TASK WIP")
+
+        elif choice == "0":
             break
         else:
             ColPt.red("Invalid Choice, Please Try Again!")

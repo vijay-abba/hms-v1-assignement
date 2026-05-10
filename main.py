@@ -7,7 +7,12 @@ from InputHandling.billing_menu import billing_menu
 from InputHandling.dashboard_menu import dashboard_menu
 
 from utils.custome_print import ColPt
-from input_handling import InputHandling, InputHandlingBill, InputHandlingAppt
+from input_handling import (
+    InputHandling,
+    InputHandlingBill,
+    InputHandlingAppt,
+    InputHandlingTreatment,
+)
 
 
 def print_options():
@@ -72,7 +77,9 @@ treatment_fields = {
     "cost": "cost",
 }
 
-treatment = InputHandling("Treatment", "treatment", "treatment_id", treatment_fields)
+treatment = InputHandlingTreatment(
+    "Treatment", "treatment", "treatment_id", treatment_fields
+)
 
 
 billing_fields = {
