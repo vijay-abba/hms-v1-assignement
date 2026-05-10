@@ -47,7 +47,7 @@ class DatabaseAction:
             ColPt.red(f"Something went Wrong {e}")
         finally:
             DatabaseConnection.close(conn, cursor)
-            print("---")
+
 
     @staticmethod
     def get_all(table_name):
@@ -85,7 +85,6 @@ class DatabaseAction:
             id = payload.get(id_name)
             fields, values = [], []
             for key, val in payload.items():
-                print(key, val)
                 if val is not None and val != "":
                     fields.append(f"{key} = %s")
                     values.append(val)
