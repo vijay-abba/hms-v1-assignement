@@ -89,11 +89,10 @@ class InputHandlingBill(InputHandling):
         print(f"6. Delete {self.DISPLY_NAME}")
         print(f"0. Back")
 
-
     def auto_generate_bill(self):
         print("Auto Generate Bill")
-        #3Auto-Generate Bill from Treatments
-    
+        print("TAKS INCOMPLETE")
+        # 3Auto-Generate Bill from Treatments
 
     def run_process(self):
 
@@ -109,6 +108,46 @@ class InputHandlingBill(InputHandling):
             elif choice == "4": self.selected_get_by_id()
             elif choice == "5": self.selected_update()
             elif choice == "6": self.selected_delete()
+            elif choice == "0":
+                break
+            else:
+                ColPt.red("Invalid Choice, Please Try Again!")
+            # fmt on
+
+
+class InputHandlingAppt(InputHandling):
+
+    def __init__(self, DISPLY_NAME, table_name, pri_id_name, fields):
+        super().__init__(DISPLY_NAME, table_name, pri_id_name, fields)
+
+    def print_options(self):
+        ColPt.blue(f"\n----- {self.DISPLY_NAME} Management -----")
+        print(f"1. Add {self.DISPLY_NAME} (manual)")
+        print(f"2. View All {self.DISPLY_NAME}s")
+        print(f"3. Get {self.DISPLY_NAME} By ID")
+        print(f"4. Update {self.DISPLY_NAME}")
+        print(f"5. Delete {self.DISPLY_NAME}")
+        print("6. Cancel Appointment")
+        print(f"0. Back")
+
+    def cancel_appointment(self):
+        print("Cancel Appointment")
+        print("TAKS INCOMPLETE")
+
+    def run_process(self):
+
+        while True:
+            self.print_options()
+
+            choice = ColPt.input_yellow("Enter your choice: ").strip()
+
+            # fmt: off
+            if choice == "1": self.selected_add()
+            elif choice == "2": self.selected_view_all()
+            elif choice == "3": self.selected_get_by_id()
+            elif choice == "4": self.selected_update()
+            elif choice == "5": self.selected_delete()
+            elif choice == "6": self.cancel_appointment()
             elif choice == "0":
                 break
             else:

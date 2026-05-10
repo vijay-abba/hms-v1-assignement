@@ -1,0 +1,21 @@
+department_id,department_name,department_code
+1,Cardiology,CARD
+2,Neurology,NEUR
+3,Pediatrics,PEDS
+4,Orthopedics,ORTH
+5,General Medicine,GEN
+6,Oncology,ONC
+7,Dermatology,DERM
+8,Psychiatry,PSYC
+9,Radiology,RAD
+10,Urology,UROL
+11,ENT,ENT
+12,Ophthalmology,OPHT
+13,Gastroenterology,GAST
+14,Pulmonology,PULM
+15,Endocrinology,ENDO
+16,Nephrology,NEPH
+17,Rheumatology,RHEU
+18,Hematology,HEMA
+19,Immunology,IMMU
+20,Anesthesiology,ANES

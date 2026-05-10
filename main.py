@@ -7,7 +7,7 @@ from InputHandling.billing_menu import billing_menu
 from InputHandling.dashboard_menu import dashboard_menu
 
 from utils.custome_print import ColPt
-from input_handling import InputHandling, InputHandlingBill
+from input_handling import InputHandling, InputHandlingBill, InputHandlingAppt
 
 
 def print_options():
@@ -61,7 +61,7 @@ appointment_fields = {
     "appointment_status": "Appointment Status",
 }
 
-appointment = InputHandling(
+appointment = InputHandlingAppt(
     "Appointment", "appointments", "appointment_id", appointment_fields
 )
 
@@ -75,15 +75,7 @@ treatment_fields = {
 treatment = InputHandling("Treatment", "treatment", "treatment_id", treatment_fields)
 
 
-# billing
-
-# billing_id
-# appointment_id
-# total_amount
-# payment_status
-# payment_type
-
-bill_fields = {
+billing_fields = {
     "billing_id": "billing_id",
     "appointment_id": "appointment_id",
     "total_amount": "total_amount",
@@ -91,7 +83,7 @@ bill_fields = {
     "payment_type": "payment_type",
 }
 
-bill = InputHandlingBill("Treatment", "treatment", "treatment_id", treatment_fields)
+bill = InputHandlingBill("Bill", "billing", "billing_id", billing_fields)
 
 
 def main_menu():

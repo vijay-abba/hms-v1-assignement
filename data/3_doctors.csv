@@ -1,0 +1,21 @@
+doctor_id,doctor_name,department_id,speciality,experience
+201,Dr. Alice Gregory,1,Cardiologist,15
+202,Dr. Bob Miller,2,Neurologist,10
+203,Dr. Catherine Shaw,3,Pediatrician,8
+204,Dr. David Vance,4,Orthopedic Surgeon,12
+205,Dr. Elena Rodriguez,5,General Practitioner,20
+206,Dr. Frank Castle,6,Oncologist,18
+207,Dr. Grace Hopper,7,Dermatologist,6
+208,Dr. Henry Ford,8,Psychiatrist,14
+209,Dr. Irene Adler,9,Radiologist,9
+210,Dr. Jack Ryan,10,Urologist,22
+211,Dr. Kelly Kapoor,11,ENT Specialist,7
+212,Dr. Liam Neeson,12,Ophthalmologist,16
+213,Dr. Maria Hill,13,Gastroenterologist,11
+214,Dr. Nathan Drake,14,Pulmonologist,13
+215,Dr. Olivia Pope,15,Endocrinologist,19
+216,Dr. Peter Parker,16,Nephrologist,5
+217,Dr. Quinn Fabray,17,Rheumatologist,17
+218,Dr. Rachel Green,18,Hematologist,8
+219,Dr. Steve Rogers,19,Immunologist,25
+220,Dr. Tony Stark,20,Anesthesiologist,21

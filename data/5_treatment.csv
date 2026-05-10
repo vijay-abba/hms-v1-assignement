@@ -1,0 +1,21 @@
+treatment_id,treatment_type,appointment_id,cost
+401,ECG Scan,301,150.00
+402,MRI Brain,302,800.00
+403,General Checkup,303,50.00
+404,Knee Surgery Consult,304,120.00
+405,Blood Panel,305,75.00
+406,Chemotherapy Session,306,1500.00
+407,Skin Biopsy,307,250.00
+408,Therapy Session,308,180.00
+409,X-Ray Chest,309,100.00
+410,Kidney Stone Removal,310,2200.00
+411,Hearing Test,311,90.00
+412,Cataract Evaluation,312,130.00
+413,Endoscopy,313,950.00
+414,Asthma Evaluation,314,110.00
+415,Thyroid Ultrasound,315,200.00
+416,Dialysis Setup,316,600.00
+417,Joint Injection,317,300.00
+418,Bone Marrow Test,318,1200.00
+419,Allergy Testing,319,280.00
+420,Epidural Consult,320,400.00

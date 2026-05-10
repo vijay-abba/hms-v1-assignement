@@ -1,0 +1,51 @@
+billing_id,appointment_id,total_amount,payment_status,payment_type
+521,321,150.00,Paid,Insurance
+522,322,60.00,Paid,Credit Card
+523,323,50.00,Paid,Cash
+524,324,120.00,Cancelled,None
+525,325,800.00,Paid,Insurance
+526,326,1500.00,Paid,Bank Transfer
+527,327,100.00,Paid,Debit Card
+528,328,950.00,Cancelled,None
+529,329,200.00,Paid,Credit Card
+530,330,150.00,Paid,Cash
+531,331,45.00,Paid,Debit Card
+532,332,75.00,Paid,Insurance
+533,333,250.00,Paid,Credit Card
+534,334,110.00,Paid,Insurance
+535,335,50.00,Paid,Cash
+536,336,300.00,Paid,Bank Transfer
+537,337,180.00,Cancelled,None
+538,338,400.00,Paid,Insurance
+539,339,100.00,Paid,Debit Card
+540,340,600.00,Paid,Insurance
+541,341,50.00,Paid,Cash
+542,342,90.00,Paid,Credit Card
+543,343,120.00,Paid,Debit Card
+544,344,350.00,Paid,Insurance
+545,345,50.00,Cancelled,None
+546,346,140.00,Pending,Insurance
+547,347,110.00,Pending,Credit Card
+548,348,280.00,Pending,Insurance
+549,349,210.00,Pending,Bank Transfer
+550,350,1100.00,Pending,Insurance
+551,351,2000.00,Pending,Insurance
+552,352,450.00,Pending,Credit Card
+553,353,500.00,Pending,Debit Card
+554,354,85.00,Pending,Cash
+555,355,60.00,Pending,Insurance
+556,356,120.00,Pending,Credit Card
+557,357,180.00,Pending,Bank Transfer
+558,358,160.00,Pending,Insurance
+559,359,50.00,Pending,Cash
+560,360,300.00,Pending,Credit Card
+561,361,2500.00,Pending,Insurance
+562,362,190.00,Pending,Debit Card
+563,363,220.00,Pending,Insurance
+564,364,150.00,Pending,Bank Transfer
+565,365,130.00,Pending,Insurance
+566,366,210.00,Pending,Credit Card
+567,367,320.00,Pending,Insurance
+568,368,270.00,Pending,Debit Card
+569,369,450.00,Pending,Insurance
+570,370,180.00,Pending,Credit Card

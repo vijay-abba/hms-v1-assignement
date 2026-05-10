@@ -1,0 +1,51 @@
+treatment_id,treatment_type,appointment_id,cost
+421,ECG Scan,321,150.00
+422,Pediatric Vitals,322,60.00
+423,General Checkup,323,50.00
+424,Knee Surgery Consult,324,120.00
+425,MRI Brain,325,800.00
+426,Chemotherapy Session,326,1500.00
+427,Eye Exam,327,100.00
+428,Endoscopy,328,950.00
+429,Thyroid Ultrasound,329,200.00
+430,Kidney Stone Consult,330,150.00
+431,Vaccination,331,45.00
+432,Blood Panel,332,75.00
+433,Skin Biopsy,333,250.00
+434,Asthma Evaluation,334,110.00
+435,General Checkup,335,50.00
+436,Joint Injection,336,300.00
+437,Therapy Session,337,180.00
+438,Epidural Consult,338,400.00
+439,X-Ray Chest,339,100.00
+440,Dialysis Setup,340,600.00
+441,General Checkup,341,50.00
+442,Hearing Test,342,90.00
+443,Acne Treatment,343,120.00
+444,Stress Test,344,350.00
+445,General Checkup,345,50.00
+446,Sinus Flush,346,140.00
+447,Prostate Exam,347,110.00
+448,Allergy Testing,348,280.00
+449,Lung Function Test,349,210.00
+450,Colonoscopy,350,1100.00
+451,Radiation Therapy,351,2000.00
+452,EEG Scan,352,450.00
+453,Fracture Setting,353,500.00
+454,Anemia Panel,354,85.00
+455,Pediatric Vitals,355,60.00
+456,Physical Therapy,356,120.00
+457,Therapy Session,357,180.00
+458,Arthritis Consult,358,160.00
+459,General Checkup,359,50.00
+460,Oncology Consult,360,300.00
+461,Laser Eye Surgery,361,2500.00
+462,Hormone Panel,362,190.00
+463,Psychiatric Eval,363,220.00
+464,Anesthesia Consult,364,150.00
+465,Kidney Function Test,365,130.00
+466,Bladder Ultrasound,366,210.00
+467,Immunity Panel,367,320.00
+468,Ultrasound Abdomen,368,270.00
+469,Dialysis Session,369,450.00
+470,Rheumatoid Panel,370,180.00

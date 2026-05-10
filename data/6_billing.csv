@@ -1,0 +1,21 @@
+billing_id,appointment_id,total_amount,payment_status,payment_type
+501,301,150.00,Pending,Insurance
+502,302,800.00,Paid,Credit Card
+503,303,50.00,Pending,Cash
+504,304,120.00,Cancelled,None
+505,305,75.00,Paid,Debit Card
+506,306,1500.00,Pending,Insurance
+507,307,250.00,Pending,Credit Card
+508,308,180.00,Paid,Cash
+509,309,100.00,Pending,Insurance
+510,310,2200.00,Cancelled,None
+511,311,90.00,Paid,Debit Card
+512,312,130.00,Pending,Credit Card
+513,313,950.00,Paid,Insurance
+514,314,110.00,Pending,Cash
+515,315,200.00,Cancelled,None
+516,316,600.00,Paid,Insurance
+517,317,300.00,Pending,Credit Card
+518,318,1200.00,Paid,Bank Transfer
+519,319,280.00,Pending,Insurance
+520,320,400.00,Pending,Debit Card
