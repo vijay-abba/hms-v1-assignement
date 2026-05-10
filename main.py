@@ -7,7 +7,7 @@ from InputHandling.billing_menu import billing_menu
 from InputHandling.dashboard_menu import dashboard_menu
 
 from utils.custome_print import ColPt
-from input_handling import InputHandling
+from input_handling import InputHandling, InputHandlingBill
 
 
 def print_options():
@@ -53,6 +53,46 @@ doctor_fields = {
 }
 doctor = InputHandling("Doctor", "doctors", "doctor_id", doctor_fields)
 
+appointment_fields = {
+    "appointment_id": "Appointment Id",
+    "patient_id": "Patient Id",
+    "doctor_id": "Doctor Id",
+    "appointment_time": "Appointment Time",
+    "appointment_status": "Appointment Status",
+}
+
+appointment = InputHandling(
+    "Appointment", "appointments", "appointment_id", appointment_fields
+)
+
+treatment_fields = {
+    "treatment_id": "treatment_id",
+    "treatment_type": "treatment_type",
+    "appointment_id": "appointment_id",
+    "cost": "cost",
+}
+
+treatment = InputHandling("Treatment", "treatment", "treatment_id", treatment_fields)
+
+
+# billing
+
+# billing_id
+# appointment_id
+# total_amount
+# payment_status
+# payment_type
+
+bill_fields = {
+    "billing_id": "billing_id",
+    "appointment_id": "appointment_id",
+    "total_amount": "total_amount",
+    "payment_status": "payment_status",
+    "payment_type": "payment_type",
+}
+
+bill = InputHandlingBill("Treatment", "treatment", "treatment_id", treatment_fields)
+
 
 def main_menu():
     while True:
@@ -62,9 +102,9 @@ def main_menu():
         if user_choice == "1": department.run_process()
         elif user_choice == "2": patient.run_process()
         elif user_choice == "3": doctor.run_process()
-        elif user_choice == "4": appointment_menu()
-        elif user_choice == "5": treatment_menu()
-        elif user_choice == "6": billing_menu()
+        elif user_choice == "4": appointment.run_process()
+        elif user_choice == "5": treatment.run_process()
+        elif user_choice == "6": bill.run_process()
         elif user_choice == "7": dashboard_menu()
         elif user_choice == "0":
             ColPt.green("Thank you !")
